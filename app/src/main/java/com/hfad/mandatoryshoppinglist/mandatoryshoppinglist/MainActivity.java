@@ -99,13 +99,15 @@ public class MainActivity extends AppCompatActivity {
     }
     public void clearList(View v) {
         //showing our dialog.
-        MyDialogFragment dialog = new MyDialogFragment() {
+        DialogClearList dialog = new DialogClearList() {
             @Override
             protected void positiveClick() {
                 //Here we override the methods and can now
                 //do something
+                bag.clear();
+                getMyAdapter().notifyDataSetChanged();
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "positive button clicked", Toast.LENGTH_LONG);
+                        "List cleared", Toast.LENGTH_LONG);
                 toast.show();
             }
 
@@ -113,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
             protected void negativeClick() {
                 //Here we override the method and can now do something
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "negative button clicked", Toast.LENGTH_SHORT);
+                        "No changes made", Toast.LENGTH_SHORT);
                 toast.show();
             }
         };
