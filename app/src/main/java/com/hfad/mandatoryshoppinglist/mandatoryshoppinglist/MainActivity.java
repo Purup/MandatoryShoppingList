@@ -11,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -64,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
         //getting our listiew - you can check the ID in the xml to see that it
         //is indeed specified as "list"
         listView = (ListView) findViewById(R.id.list);
@@ -89,16 +93,35 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        clearList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                bag.clear();
-                getMyAdapter().notifyDataSetChanged();
-            }
-        });
+
+
 
     }
+    public void clearList(View v) {
+        //showing our dialog.
+        MyDialogFragment dialog = new MyDialogFragment() {
+            @Override
+            protected void positiveClick() {
+                //Here we override the methods and can now
+                //do something
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "positive button clicked", Toast.LENGTH_LONG);
+                toast.show();
+            }
 
+            @Override
+            protected void negativeClick() {
+                //Here we override the method and can now do something
+                Toast toast = Toast.makeText(getApplicationContext(),
+                        "negative button clicked", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        };
+
+        //Here we show the dialog
+        //The tag "MyFragement" is not important for us.
+        dialog.show(getFragmentManager(), "MyFragment");
+    }
 
 
     @Override
