@@ -7,7 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 
 /**
- * Created by Puriiqt on 12/05/2016.
+ * Created by Puriiqt on 09/05/2016.
  */
 public class DialogClearList extends DialogFragment
 {

@@ -12,7 +12,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.projects.shoppinglist.MainActivity"
+    tools:context="com.hfad.mandatoryshoppinglist.mandatoryshoppinglist.MainActivity"
     tools:showIn="@layout/activity_main">
 
     <TextView
@@ -43,7 +43,13 @@
         <EditText
             android:layout_width="38dp"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:id="@+id/editText2" />
+        <EditText
+            android:layout_width="38dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:id="@+id/price" />
 
     <Button
         android:id="@+id/addButton"
@@ -53,21 +59,31 @@
         android:layout_gravity="right" />
 
         </LinearLayout>
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:weightSum="1">
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="Delete item"
         android:id="@+id/deleteButton"
         android:layout_gravity="right" />
-
     <Button
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="Total price"
+        android:id="@+id/calcPrice" />
+    <TextView
+        android:id="@+id/totalPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Clear List"
-        android:id="@+id/clearListButton"
-        android:layout_gravity="right"
-        android:onClick="clearList"/>
+        android:text="Price: "/>
+</LinearLayout>
+
+
 
     <ListView
         android:id="@+id/list"
